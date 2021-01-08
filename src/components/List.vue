@@ -1,8 +1,17 @@
 <template>
-  <div class="container">
+  <div>
     <Header />
-    <b-table hover bordered :items="data" :fields="fields" @row-clicked="detail" selectable> </b-table>
-    <b-button class="m-1" variant="primary" @click="write">글쓰기</b-button>
+    <div class="container">
+      <b-table hover :items="data" :fields="fields" @row-clicked="detail" :per-page="perPage" :current-page="currentPage"> </b-table>
+      <div class="row">
+        <div class="col">
+          <b-pagination v-model="currentPage" :total-rows="rows" :per-page="perPage" aria-controls="my-table"></b-pagination>
+        </div>
+        <div class="col" align="right">
+          <b-button size="sm" variant="primary" @click="write">글쓰기</b-button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -13,6 +22,9 @@ export default {
   components: { Header },
   data() {
     return {
+      rows: data.length,
+      perPage: 13,
+      currentPage: 1,
       fields: [
         { key: 'name', label: '이름' },
         { key: 'title', label: '제목' },

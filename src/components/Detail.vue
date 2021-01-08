@@ -1,15 +1,18 @@
 <template>
-  <div class="container">
+  <div>
     <Header />
-    <b-card :title="data.title" :sub-title="data.name" class="mb-2">
-      <b-card-text>{{ data.text }}</b-card-text>
+    <div class="container">
+      <b-card :title="data.title" :sub-title="data.name" class="mb-2">
+        <b-card-text>{{ data.text }}</b-card-text>
 
-      <b-button @click="goHome" size="sm" variant="secondary" class="mx-2">뒤로</b-button>
-      <b-button @click="modify" size="sm" variant="success" class="mx-2">수정</b-button>
-      <b-button @click="remove" size="sm" variant="danger" class="mx-2">삭제</b-button>
-    </b-card>
+        <b-button @click="goHome" size="sm" variant="secondary" class="mx-2">뒤로</b-button>
+        <b-button @click="modify" size="sm" variant="primary" class="mx-2">수정</b-button>
+        <b-button @click="remove" size="sm" variant="danger" class="mx-2">삭제</b-button>
+      </b-card>
+    </div>
   </div>
 </template>
+
 <script>
 import data from '@/data'
 import Header from '@/components/Header'
